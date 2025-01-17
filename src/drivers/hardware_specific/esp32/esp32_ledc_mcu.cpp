@@ -81,6 +81,7 @@ bool _ledcAttachChannelAdvanced(uint8_t pin, int _channel, int _group, uint32_t 
   ledc_timer.duty_resolution = res;
   ledc_timer.freq_hz = freq;
   ledc_timer.clk_cfg = LEDC_AUTO_CLK;
+  ledc_timer.deconfigure = false;
   if (ledc_timer_config(&ledc_timer) != ESP_OK) {
     SIMPLEFOC_DEBUG("EP32-DRV: ERROR - Failed to configure the timer:", LEDC_TIMER_0);
     return false;
